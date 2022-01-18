@@ -1,0 +1,41 @@
+<button mat-raised-button (click)="addCliente()" color="primary">Adicionar Cliente</button>
+
+<table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="inscricao">
+        <th mat-header-cell *matHeaderCellDef> Inscrição </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.inscricao}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apelido">
+        <th mat-header-cell *matHeaderCellDef> Apelido </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.apelido}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let cliente"> {{status[cliente.status]}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let cliente"> 
+            <button mat-stroked-button color="primary" (click)="detalhar(cliente.id)"> Detalhar </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [length]="totalElements"
+               [pageSize]="size"
+               aria-label="Select page"
+               (page)="onPaginate($event)">
+</mat-paginator>

@@ -1,0 +1,16 @@
+button {
+    margin-top: 1%;
+    margin-right: 2%;
+    margin-bottom: 0.5%;
+    float: right;
+}
+
+table {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+mat-paginator {
+    margin-right: 2%;
+}

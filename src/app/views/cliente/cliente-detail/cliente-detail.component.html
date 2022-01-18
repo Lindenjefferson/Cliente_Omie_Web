@@ -1,0 +1,45 @@
+<div style="width: 100%">
+    <div class="div-column-left">
+        <img src={{cliente.urlImagem}} alt="Imagem Cliente" width="250" height="250">
+    </div>
+    <div class="div-column-center">
+        <mat-list>
+            <mat-list-item>Inscrição: {{cliente.inscricao}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Nome: {{cliente.nome}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Apelido: {{cliente.apelido}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Status: {{status[cliente.status]}}</mat-list-item>
+        </mat-list>
+        <button mat-raised-button (click)="deletarCliente(cliente.id)" color="warn" class="button">Deletar cliente</button>
+        <button mat-stroked-button (click)="editarCliente(cliente)" color="accent" class="button"> Editar </button> 
+        <button mat-stroked-button (click)="retornar()" color="basic" class="button"> Voltar </button> 
+    </div>
+    <div class="div-column-right">
+        <table mat-table [dataSource]="emails" class="mat-elevation-z8">=
+            <ng-container matColumnDef="categoria">
+                <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                <td mat-cell *matCellDef="let email"> {{email.categoria}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let email"> {{email.nome}} </td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let email"> {{email.email}} </td>
+            </ng-container>
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let email"> 
+                    <button mat-stroked-button color="warn" (click)="deletarEmail(email.id)"> Deletar </button>    
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <button mat-raised-button color="primary" class="button" (click)="addEmail()">Adicionar email</button>
+    </div>
+    <br style="clear: left;" />
+</div>

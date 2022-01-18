@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Novo cliente</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="clienteForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Inscrição</mat-label>
+      <input matInput formControlName="inscricao" name="inscricao">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" name="nome">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Apelido</mat-label>
+      <input matInput formControlName="apelido" name="apelido">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Link da imagem</mat-label>
+      <input matInput formControlName="urlImagem" name="urlImagem">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Status</mat-label>
+      <mat-select [(value)]="selectedStatus" formControlName="status" name="status">
+        <mat-option></mat-option>
+        <mat-option [value]="option.value" *ngFor="let option of status">{{ option.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="add()"> Salvar </button>
+  <button mat-button (click)="cancel()"> Cancelar </button>
+</div>
